@@ -2,12 +2,12 @@ import { ObjectType, Field } from "type-graphql";
 
 @ObjectType()
 export class Domain {
-  @Field()
+  @Field({ description: "The full domain name." })
   full!: string;
 
-  @Field()
+  @Field({ description: "The domain name" })
   name!: string;
 
-  @Field()
+  @Field({ description: "Top-level domain, eg. com, org or net." })
   tld!: string;
 }
