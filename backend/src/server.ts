@@ -17,7 +17,7 @@ const bootstrap = async () => {
 
   const server = new ApolloServer({
     schema,
-    playground: true,
+    debug: true,
   });
 
   const routes = new koaRouter().use("/", rootRouter.routes());
@@ -27,6 +27,8 @@ const bootstrap = async () => {
     .use(koaBody())
     .use(routes.routes())
     .use(routes.allowedMethods());
+
+  await server.start();
 
   server.applyMiddleware({ app });
 
